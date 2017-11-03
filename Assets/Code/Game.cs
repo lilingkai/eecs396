@@ -15,9 +15,11 @@ public class Game : MonoBehaviour {
             }
         }
 
-        GameObject home = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        home.transform.position = new Vector3(4, 1, 4);
-	}
+        //GameObject home = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        //home.transform.position = new Vector3(4, 1, 4);
+
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
