@@ -31,10 +31,9 @@ public class Enemy : MonoBehaviour {
 	}
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.GetComponent<Base>()!=null && check_hit==false)
+        if (collision.collider.GetComponent<Base>()!=null && check_hit==false)
         {
-            collision.collider.GetComponent<Base>().health = collision.collider.GetComponent<Base>().health - damage;
-            print(collision.collider.GetComponent<Base>().health);
+            collision.collider.GetComponent<BaseHealth>().TakeDamage(damage);
             Destroy(gameObject);
             check_hit = true;
         }
