@@ -3,22 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Game : MonoBehaviour {
-
+    public static Grid Grid;
+    public static Base Base;
+    public static EnemyManager EnemyManager;
+    public static Tower Tower;
 	// Use this for initialization
 	void Start () {
-
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                Object cell = Instantiate(Resources.Load("Platform"), new Vector3(i, 0f, j), Quaternion.identity);
-            }
-        }
+        Game.Grid = GameObject.FindObjectOfType<Grid>();
+        Game.Base = GameObject.FindObjectOfType<Base>();
+        Game.EnemyManager = GameObject.FindObjectOfType<EnemyManager>();
 
         //GameObject home = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
         //home.transform.position = new Vector3(4, 1, 4);
-
-        
     }
 	
 	// Update is called once per frame
