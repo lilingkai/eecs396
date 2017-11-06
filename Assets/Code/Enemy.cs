@@ -8,12 +8,11 @@ public class Enemy : MonoBehaviour {
     private int health;
     private Rigidbody _rb;
     private int damage;
-    private bool check_hit;
+   
     
 	void Start () {
         health = 100;
         damage = 5;
-        check_hit = false;
         _rb = GetComponent<Rigidbody>();
 
 	}
@@ -26,16 +25,38 @@ public class Enemy : MonoBehaviour {
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(4, 1, 4), 2f * Time.fixedDeltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(4, 1, 4), Time.fixedDeltaTime);
         }
 	}
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    private void TakeDamage(int damage)
+    {
+        this.health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.GetComponent<Base>()!=null && check_hit==false)
+        Base base_ = collision.gameObject.GetComponent<Base>();
+        Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+        print(collision.collider);
+        if (base_)
         {
-            collision.collider.GetComponent<BaseHealth>().TakeDamage(damage);
-            Destroy(gameObject);
-            check_hit = true;
+            collision.gameObject.GetComponent<BaseHealth>().TakeDamage(damage);
+            Die();
+        }
+        else if (bullet)
+        {
+            TakeDamage(bullet.getDamage());
+            Destroy(bullet.gameObject);
         }
     }
 }

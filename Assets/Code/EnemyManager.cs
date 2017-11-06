@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyManager : MonoBehaviour
 {
-    private const float SpawnTime = 3f;
+    private const float SPAWN_TIME = 3f;
     private static Object _enemyPrefab;
     private float _lastspawn;
     private Transform _holder;
@@ -21,7 +21,7 @@ public class EnemyManager : MonoBehaviour
 
     internal void Update()
     {
-        if ((Time.time - _lastspawn) < SpawnTime) return;
+        if ((Time.time - _lastspawn) < SPAWN_TIME) return;
         _lastspawn = Time.time;
         Spawn();
     }
@@ -29,7 +29,7 @@ public class EnemyManager : MonoBehaviour
     // TODO fill me in
     public void Spawn()
     {
-        GameObject new_enemy = (GameObject)Object.Instantiate(_enemyPrefab, new Vector3(0, 0.6f, 0), Quaternion.identity);
+        GameObject new_enemy = (GameObject)Object.Instantiate(_enemyPrefab, new Vector3(0, 1.5f, 0), Quaternion.identity);
         new_enemy.transform.SetParent(_holder.transform);
     }
 }

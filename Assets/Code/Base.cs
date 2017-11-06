@@ -9,7 +9,8 @@ public class Base : MonoBehaviour
     {
         health = 100;
         GameObject cylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        cylinder.transform.position = new Vector3(4, 1, 4);
+        cylinder.transform.position = new Vector3(4, 1.5f, 4);
+        cylinder.transform.parent = transform;
     }
 
     // Update is called once per frame
