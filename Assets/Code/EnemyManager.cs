@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyManager : MonoBehaviour
 {
-    private const float WAVE_SPAWN_TIME = 60f;
+    public  float WAVE_SPAWN_TIME;
     private static Object _enemyPrefab;
     private float _lastspawn;
     private Transform _holder;
@@ -18,6 +18,7 @@ public class EnemyManager : MonoBehaviour
         _lastspawn = 5;
         _enemyPrefab = Resources.Load("Enemy");
         _holder = transform;
+        WAVE_SPAWN_TIME = 30f;
     }
 
     internal void Update()
