@@ -6,19 +6,13 @@ public class Enemy : MonoBehaviour {
 
     // Use this for initialization
     private int health;
-    private Rigidbody _rb;
     private int damage;
     private int rewardMoney;
     
 	void Start () {
         health = 100;
         damage = 5;
-        _rb = GetComponent<Rigidbody>();
         rewardMoney = 10;
-	}
-	
-	// Update is called once per frame
-	void Update () {
 	}
 
     private void Die()

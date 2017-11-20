@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour {
-    private const float FIRING_RATE = 1f;
+    public const int cost = 20;
+    private const float FIRING_RATE = 0.5f;
 
     private float _lastShot;
     private Gun _gun;
 
 	// Use this for initialization
 	void Start () {
+        this._lastShot = Time.time;
         this._gun = GetComponentInChildren<Gun>();
 	}
 
