@@ -5,19 +5,28 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     // Use this for initialization
-    private int health;
-    private int damage;
-    private int rewardMoney;
+    public int health;
+    private Rigidbody _rb;
+    public int damage;
+    public int rewardMoney;
     
 	void Start () {
-        health = 100;
-        damage = 5;
+        health = 50;
+        damage = 50;
+        _rb = GetComponent<Rigidbody>();
         rewardMoney = 10;
 	}
 
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void Modify(int h, int d, int m)
+    {
+        health = h;
+        damage = d;
+        rewardMoney = m;
     }
 
     private void TakeDamage(int damage)

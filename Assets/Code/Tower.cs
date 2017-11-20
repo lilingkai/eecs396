@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour {
     public const int cost = 20;
-    private const float FIRING_RATE = 0.5f;
+    private const float FIRING_RATE = 1f;
 
     private float _lastShot;
     private Gun _gun;
@@ -20,7 +20,8 @@ public class Tower : MonoBehaviour {
         // Finds nearest enemy
         Enemy nearest = null;
         Vector3 distance = Vector3.positiveInfinity;
-        foreach (Enemy enemy in GameObject.FindObjectsOfType<Enemy>()) {
+        foreach (Enemy enemy in GameObject.FindObjectsOfType<Enemy>())
+        {
             Vector3 currentDistance = enemy.transform.position - this.transform.position;
             if (currentDistance.sqrMagnitude < distance.sqrMagnitude)
             {
@@ -29,15 +30,18 @@ public class Tower : MonoBehaviour {
             }
         }
         // Rotates the tower in the direction of the nearest enemy, if there is one
-        if (nearest != null)
+        if (nearest == null)
         {
-            this.transform.rotation = Quaternion.LookRotation(new Vector3(distance.x, 0, distance.z), Vector3.up);
+            return;
         }
+        this.transform.rotation = Quaternion.LookRotation(new Vector3(distance.x, 0, distance.z), Vector3.up);
         // Fires bullet at FIRING_RATE
-        if ((Time.time - _lastShot) < FIRING_RATE)
+        print(Time.time - _lastShot);
+        if ((Time.time - _lastShot) > FIRING_RATE)
         {
             _lastShot = Time.time;
             this._gun.Fire();
         }
+        
 	}
 }

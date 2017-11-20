@@ -60,7 +60,7 @@ public class BuildButton : MenuButton
         // Check if there is an enemy
         RaycastHit hit;
         Physics.SphereCast(new Vector3(x, 0f, z), 0.5f, Vector3.up, out hit, 1f);
-        if (hit.collider.GetComponent<Enemy>())
+        if (hit.collider && hit.collider.GetComponent<Enemy>())
         {
             yield break;
         }

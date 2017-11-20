@@ -7,7 +7,7 @@ public class Base : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        health = 100;
+        health = 150;
         GameObject cylinder = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
         cylinder.transform.position = new Vector3(4, 1.5f, 4);
         cylinder.transform.parent = transform;

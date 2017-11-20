@@ -16,6 +16,6 @@ public class SellButton : MenuButton
         Hide();
         Destroy(Game.Grid.cells[Game.x, Game.z]);
         Game.Grid.cells[Game.x, Game.z] = null;
-        Game.Money.money += (int)(Tower.cost * .9f);
+        Game.Money.money += (int) Mathf.Round(Tower.cost * .9f);
     }
 }
