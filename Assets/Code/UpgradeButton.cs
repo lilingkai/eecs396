@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class BuildMenu : MonoBehaviour
+public class UpgradeButton : MonoBehaviour
 {
     public Button _button;
     public int x;
@@ -15,9 +15,9 @@ public class BuildMenu : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Button btn  = _button.GetComponent<Button>();
-       // btn.GetComponent<Image>().gameObject.SetActive(false);
-        _button.GetComponentInChildren<Text>().text = "Build Tower";
+        Button btn = _button.GetComponent<Button>();
+        // btn.GetComponent<Image>().gameObject.SetActive(false);
+        _button.GetComponentInChildren<Text>().text = "Sell Tower";
         btn.onClick.AddListener(TaskOnClick);
         _transform = btn.GetComponent<Transform>();
         offposition.x = 500000;
@@ -31,30 +31,19 @@ public class BuildMenu : MonoBehaviour
 
     void TaskOnClick()
     {
-        if (_money.money >= 20)
-        {
             _transform.position = offposition;
-            FindObjectOfType<Grid>().newTower(x, z);
-            _money.money -= 20;
-        }
+            FindObjectOfType<Grid>().cells[x,z]=null;
+            _money.money += 18;
     }
     public void appear(int xc, int zc)
     {
-        if (_money.money < 20)
-        {
-            _button.GetComponent<Image>().color = Color.gray;
-            _transform.position = onposition;
-        }
-        else
-        {
             x = xc;
             z = zc;
             _transform.position = onposition;
-        }
     }
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -12,8 +12,14 @@ public class Cell : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        print(_transform.position.x);
-        FindObjectOfType<BuildMenu>().appear((int)_transform.position.x, (int)_transform.position.z);
+        if (FindObjectOfType<Grid>().cells[(int)_transform.position.x, (int)_transform.position.z] == Game.Tower)
+        {
+            FindObjectOfType<UpgradeButton>().appear((int)_transform.position.x, (int)_transform.position.z);
+        }
+        else
+        {
+            FindObjectOfType<BuildMenu>().appear((int)_transform.position.x, (int)_transform.position.z);
+        }
     }
     //public void makeTower()
     //{
