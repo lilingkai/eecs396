@@ -32,7 +32,8 @@ public class UpgradeButton : MonoBehaviour
     void TaskOnClick()
     {
             _transform.position = offposition;
-            FindObjectOfType<Grid>().cells[x,z]=null;
+            Destroy(FindObjectOfType<Grid>().cells[x,z]);
+            FindObjectOfType<Grid>()._track[x, z] = 0;
             _money.money += 18;
     }
     public void appear(int xc, int zc)

@@ -12,12 +12,15 @@ public class Cell : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        if (FindObjectOfType<Grid>().cells[(int)_transform.position.x, (int)_transform.position.z] == Game.Tower)
+
+        if (FindObjectOfType<Grid>()._track[(int)_transform.position.x, (int)_transform.position.z] !=0)
         {
+            print("hello");
             FindObjectOfType<UpgradeButton>().appear((int)_transform.position.x, (int)_transform.position.z);
         }
         else
         {
+            print("hi");
             FindObjectOfType<BuildMenu>().appear((int)_transform.position.x, (int)_transform.position.z);
         }
     }

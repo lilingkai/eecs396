@@ -50,7 +50,6 @@ public class Enemy : MonoBehaviour {
     {
         Base base_ = collision.gameObject.GetComponent<Base>();
         Bullet bullet = collision.gameObject.GetComponent<Bullet>();
-        print(collision.collider);
         if (base_)
         {
             collision.gameObject.GetComponent<BaseHealth>().TakeDamage(damage);
