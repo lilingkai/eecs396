@@ -28,6 +28,7 @@ public class GameOver : MonoBehaviour {
                 Tower[] _towers;
                 _towers = FindObjectsOfType<Tower>();
                 FindObjectOfType<EnemyManager>().WAVE_SPAWN_TIME = 50000f;
+                FindObjectOfType<EnemyManager>().over = 1;
 
                 foreach (Tower _object in _towers)
                 {

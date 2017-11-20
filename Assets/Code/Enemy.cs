@@ -5,13 +5,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     // Use this for initialization
-    private int health;
+    public int health;
     private Rigidbody _rb;
-    private int damage;
-    private int rewardMoney;
+    public int damage;
+    public int rewardMoney;
     
 	void Start () {
-        health = 100;
+        health = 50;
         damage = 50;
         _rb = GetComponent<Rigidbody>();
         rewardMoney = 10;
