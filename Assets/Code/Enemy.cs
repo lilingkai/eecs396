@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
     
 	void Start () {
         health = 100;
-        damage = 5;
+        damage = 50;
         _rb = GetComponent<Rigidbody>();
         rewardMoney = 10;
 	}
