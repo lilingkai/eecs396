@@ -92,9 +92,9 @@ public class EnemyManager : MonoBehaviour
             Invoke("Spawn2", 2);
             Invoke("Spawn2", 3);
             Invoke("Spawn2", 4);
-            Invoke("Spawn3", 8);
-            Invoke("Spawn3", 9);
-            Invoke("Spawn4", 10);
+            Invoke("Spawn3", 6);
+            Invoke("Spawn3", 7);
+            Invoke("Spawn4", 8);
         }
 
         else if (_wavenumber == 2)
@@ -103,13 +103,19 @@ public class EnemyManager : MonoBehaviour
             Invoke("Spawn2", 2);
             Invoke("Spawn2", 3);
             Invoke("Spawn2", 4);
+            Invoke("Spawn3", 6);
+            Invoke("Spawn3", 7);
             Invoke("Spawn3", 8);
-            Invoke("Spawn3", 9);
-            Invoke("Spawn3", 10);
             Invoke("Spawn4", 11);
             Invoke("Spawn4", 12);
             Invoke("Spawn4", 13);
+            Invoke("WaveNumber", 19);
         }
+
+    }
+    public void WaveNumber()
+    {
+        _wavenumber = 5;
     }
 
 }

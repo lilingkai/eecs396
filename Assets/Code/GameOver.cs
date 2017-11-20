@@ -44,32 +44,43 @@ public class GameOver : MonoBehaviour {
                 {
                     enemy.GetComponent<NavMeshAgent>().isStopped = true;
                 }
+
+                foreach(Bullet bullet in FindObjectsOfType<Bullet>())
+                {
+                    Destroy(bullet);
+                }
+                Destroy(FindObjectOfType<WaveUI>());
             }
-            //else if (FindObjectOfType<EnemyManager>().waveOver == 1)
-            //{
-            //    _text.text = "You Won!";
-            //    _over = 1;
-            //    Destroy(FindObjectOfType<Money>());
-            //    Destroy(FindObjectOfType<UpgradeButton>());
-            //    Destroy(FindObjectOfType<BuildMenu>());
-            //    Enemy[] _enemies;
-            //    Tower[] _towers;
-            //    _towers = FindObjectsOfType<Tower>();
-            //    FindObjectOfType<EnemyManager>().SPAWN_TIME = 50000f;
+            else if (FindObjectOfType<EnemyManager>()._wavenumber == 5)
+            {
+                _text.text = "You Won!";
+                _over = 1;
+                Destroy(FindObjectOfType<Money>());
+                Destroy(FindObjectOfType<SellButton>());
+                Destroy(FindObjectOfType<BuildButton>());
+                Enemy[] _enemies;
+                Tower[] _towers;
+                _towers = FindObjectsOfType<Tower>();
+                FindObjectOfType<EnemyManager>().WAVE_SPAWN_TIME = 50000f;
 
-            //    foreach (Tower _object in _towers)
-            //    {
-            //        _object.FIRING_RATE = 50000000f;
-            //        Destroy(_object.GetComponent<Gun>());
-            //        _object.destroy = 1;
-            //    }
+                foreach (Tower _object in _towers)
+                {
+                    _object.FIRING_RATE = 50000000f;
+                    Destroy(_object.GetComponent<Gun>());
+                    _object._destroy = 1;
+                }
 
-            //    _enemies = FindObjectsOfType<Enemy>();
-            //    foreach (Enemy _object in _enemies)
-            //    {
-            //        Destroy(_object.GetComponent<NavMeshAgent>());
-            //    }
-            //}
+                _enemies = FindObjectsOfType<Enemy>();
+                foreach (Enemy _object in _enemies)
+                {
+                    Destroy(_object.GetComponent<NavMeshAgent>());
+                }
+                foreach (Bullet bullet in FindObjectsOfType<Bullet>())
+                {
+                    Destroy(bullet);
+                }
+                Destroy(FindObjectOfType<WaveUI>());
+            }
         }
 	}
 }
