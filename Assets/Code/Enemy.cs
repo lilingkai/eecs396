@@ -26,6 +26,13 @@ public class Enemy : MonoBehaviour {
         Destroy(gameObject);
     }
 
+    public void Modify(int h, int d, int m)
+    {
+        health = h;
+        damage = d;
+        rewardMoney = m;
+    }
+
     private void TakeDamage(int damage)
     {
         this.health -= damage;
