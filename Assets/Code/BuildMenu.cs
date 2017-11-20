@@ -36,20 +36,30 @@ public class BuildMenu : MonoBehaviour
             _transform.position = offposition;
             FindObjectOfType<Grid>().newTower(x, z);
             _money.money -= 20;
+           
         }
     }
     public void appear(int xc, int zc)
     {
-        if (_money.money < 20)
-        {
-            _button.GetComponent<Image>().color = Color.gray;
-            _transform.position = onposition;
-        }
-        else
+        
+
+        
+        if (x != xc || z != zc)
         {
             x = xc;
             z = zc;
             _transform.position = onposition;
+            if (_money.money < 20)
+            {
+                _button.GetComponent<Image>().color = Color.gray;
+                _transform.position = onposition;
+            }
+        }
+        else
+        {
+            x = 6;
+            z = 6;
+            _transform.position = offposition;
         }
     }
     // Update is called once per frame

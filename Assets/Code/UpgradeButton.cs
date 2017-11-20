@@ -32,15 +32,24 @@ public class UpgradeButton : MonoBehaviour
     void TaskOnClick()
     {
             _transform.position = offposition;
-            Destroy(FindObjectOfType<Grid>().cells[x,z]);
+            Destroy(FindObjectOfType<Grid>().towers[x,z]);
             FindObjectOfType<Grid>()._track[x, z] = 0;
             _money.money += 18;
     }
     public void appear(int xc, int zc)
     {
+        if (x != xc || z != zc)
+        {
             x = xc;
             z = zc;
             _transform.position = onposition;
+        }
+        else
+        {
+            x = 6;
+            z = 6;
+            _transform.position = offposition;
+        }
     }
     // Update is called once per frame
     void Update()
