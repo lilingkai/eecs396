@@ -3,41 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cell : MonoBehaviour {
-
-    public Transform _transform;
+    public readonly int x, z;
 	// Use this for initialization
 	void Start () {
-        _transform = GetComponent<Transform>();
+
 	}
 
     private void OnMouseDown()
     {
-        if ((int)_transform.position.x != 4 || (int)_transform.position.z != 4)
+        Vector3 pos = gameObject.transform.position;
+        int x = (int) pos.x
+            , z = (int) pos.z;
+
+        Game.x = x;
+        Game.z = z;
+        if ((x == Grid.GRID_SIZE - 1 && z == Grid.GRID_SIZE - 1)
+            || (x == 0 && z == 0)
+            || Game.Grid.OutOfBounds(x, z))
         {
-            if ((int)_transform.position.x != 0 || (int)_transform.position.z != 0)
+            foreach (MenuButton btn in FindObjectsOfType<MenuButton>())
             {
-                {
-                    if (FindObjectOfType<Grid>()._track[(int)_transform.position.x, (int)_transform.position.z] != 0)
-                    {
-                        print("hello");
-                        FindObjectOfType<UpgradeButton>().appear((int)_transform.position.x, (int)_transform.position.z);
-                    }
-                    else
-                    {
-                        print("hi");
-                        FindObjectOfType<BuildMenu>().appear((int)_transform.position.x, (int)_transform.position.z);
-                    }
-                }
+                btn.Hide();
             }
+            return;
+        }
+
+        Game.Grid.Unselect();
+        Game.Grid.Select(this);
+        GameObject contents = (GameObject) Game.Grid.cells[x, z];
+
+        if (!contents)
+        {
+            FindObjectOfType<BuildButton>().Appear();
+            FindObjectOfType<SellButton>().Hide();
+        } else if (contents && contents.GetComponent<Tower>())
+        {
+            FindObjectOfType<SellButton>().Appear();
+            FindObjectOfType<BuildButton>().Hide();
         }
     }
-    //public void makeTower()
-    //{
-    //    FindObjectOfType<Grid>().newTower((int)GetComponent<Transform>().position.x, (int)GetComponent<Transform>().position.z);
-    //}
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }

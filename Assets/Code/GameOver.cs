@@ -22,25 +22,27 @@ public class GameOver : MonoBehaviour {
                 _text.text = "You Lost :(";
                 _over = 1;
                 Destroy(FindObjectOfType<Money>());
-                Destroy(FindObjectOfType<UpgradeButton>());
-                Destroy(FindObjectOfType<BuildMenu>());
-                Enemy[] _enemies;
-                Tower[] _towers;
-                _towers = FindObjectsOfType<Tower>();
+                Destroy(FindObjectOfType<SellButton>());
+                Destroy(FindObjectOfType<BuildButton>());
+   
+      
                 FindObjectOfType<EnemyManager>().WAVE_SPAWN_TIME = 50000f;
                 FindObjectOfType<EnemyManager>().over = 1;
 
-                foreach (Tower _object in _towers)
+                foreach (Tower tower in FindObjectsOfType<Tower>())
                 {
-                    _object.FIRING_RATE = 50000000f;
-                    Destroy(_object.GetComponent<Gun>());
-                    _object.destroy = 1;
+                    tower.GetComponent<Tower>().enabled = false;
                 }
 
-                _enemies =  FindObjectsOfType<Enemy>();
-                foreach (Enemy _object in _enemies)
+                foreach (Bullet bullet in FindObjectsOfType<Bullet>())
                 {
-                    Destroy(_object.GetComponent<NavMeshAgent>());
+                    bullet.GetComponent<Bullet>().enabled = false;
+                    bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                }
+
+                foreach (Enemy enemy in FindObjectsOfType<Enemy>())
+                {
+                    enemy.GetComponent<NavMeshAgent>().isStopped = true;
                 }
             }
             //else if (FindObjectOfType<EnemyManager>().waveOver == 1)
@@ -69,7 +71,5 @@ public class GameOver : MonoBehaviour {
             //    }
             //}
         }
-
-
 	}
 }

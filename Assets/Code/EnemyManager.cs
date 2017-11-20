@@ -109,10 +109,7 @@ public class EnemyManager : MonoBehaviour
             Invoke("Spawn4", 11);
             Invoke("Spawn4", 12);
             Invoke("Spawn4", 13);
-
-
         }
-
     }
 
 }

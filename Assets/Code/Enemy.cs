@@ -16,10 +16,6 @@ public class Enemy : MonoBehaviour {
         _rb = GetComponent<Rigidbody>();
         rewardMoney = 10;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	}
 
     private void Die()
     {
