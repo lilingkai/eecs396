@@ -23,19 +23,18 @@ public class EnemyManager : MonoBehaviour
         _lastspawn = 5;
         _enemyPrefab = Resources.Load("Enemy");
         _holder = transform;
-        WAVE_SPAWN_TIME = 5f;
+        WAVE_SPAWN_TIME = 10f;
     }
 
     internal void Update()
     {
-        //5->30->60 seconds right now for waves
         if(_wavenumber==1)
         {
-            WAVE_SPAWN_TIME = 20f;
+            WAVE_SPAWN_TIME = 30f;
         }
         else if (_wavenumber == 2)
         {
-            WAVE_SPAWN_TIME = 20f;
+            WAVE_SPAWN_TIME = 30f;
         }
         if ((Time.time - _lastspawn) < WAVE_SPAWN_TIME) return;
         _lastspawn = Time.time;
@@ -70,7 +69,7 @@ public class EnemyManager : MonoBehaviour
         {
             GameObject newEnemy = (GameObject)Object.Instantiate(_enemyPrefab, new Vector3(0, 1.5f, 0), Quaternion.identity);
             newEnemy.transform.SetParent(_holder.transform);
-            newEnemy.GetComponent<Enemy>().damage = 100;
+            newEnemy.GetComponent<Enemy>().damage = 50;
             newEnemy.GetComponent<Enemy>().rewardMoney = 20;
         }
     }
@@ -93,10 +92,9 @@ public class EnemyManager : MonoBehaviour
             Invoke("Spawn2", 2);
             Invoke("Spawn2", 3);
             Invoke("Spawn2", 4);
-            Invoke("Spawn2", 6);
             Invoke("Spawn3", 8);
             Invoke("Spawn3", 9);
-            Invoke("Spawn3", 10);
+            Invoke("Spawn4", 10);
         }
 
         else if (_wavenumber == 2)
@@ -105,8 +103,6 @@ public class EnemyManager : MonoBehaviour
             Invoke("Spawn2", 2);
             Invoke("Spawn2", 3);
             Invoke("Spawn2", 4);
-            Invoke("Spawn2", 5);
-            Invoke("Spawn2", 6);
             Invoke("Spawn3", 8);
             Invoke("Spawn3", 9);
             Invoke("Spawn3", 10);
