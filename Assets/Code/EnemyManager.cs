@@ -29,8 +29,8 @@ public class EnemyManager : MonoBehaviour
     // TODO fill me in
     public void Spawn()
     {
-        GameObject new_enemy = (GameObject)Object.Instantiate(_enemyPrefab, new Vector3(0, 1.5f, 0), Quaternion.identity);
-        new_enemy.transform.SetParent(_holder.transform);
+        GameObject newEnemy = (GameObject)Object.Instantiate(_enemyPrefab, new Vector3(0, 1.5f, 0), Quaternion.identity);
+        newEnemy.transform.SetParent(_holder.transform);
     }
 }
 

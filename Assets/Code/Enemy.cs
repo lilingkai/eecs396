@@ -8,27 +8,17 @@ public class Enemy : MonoBehaviour {
     private int health;
     private Rigidbody _rb;
     private int damage;
-    private int reward_money;
-   
+    private int rewardMoney;
     
 	void Start () {
         health = 100;
         damage = 5;
         _rb = GetComponent<Rigidbody>();
-        reward_money = 10;
+        rewardMoney = 10;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (health<=0)
-        {
-            Destroy(gameObject);
-           
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(4, 1, 4), Time.fixedDeltaTime);
-        }
 	}
 
     private void Die()
@@ -41,7 +31,7 @@ public class Enemy : MonoBehaviour {
         this.health -= damage;
         if (health <= 0)
         {
-            Object.FindObjectOfType<Money>().update_score(reward_money);
+            Object.FindObjectOfType<Money>().UpdateScore(rewardMoney);
             Die();
         }
     }

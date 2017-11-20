@@ -15,7 +15,7 @@ public class Money : MonoBehaviour
         _text.text = money.ToString();
     }
 
-    public void update_score(int value)
+    public void UpdateScore(int value)
     {
         money += value;
     }

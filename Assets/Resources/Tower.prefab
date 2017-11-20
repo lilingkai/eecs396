@@ -75,6 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4281941559028516}
   - component: {fileID: 114153301387273248}
+  - component: {fileID: 208310386211926870}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -90,7 +91,7 @@ Transform:
   m_GameObject: {fileID: 1379256040795836}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4281941559028516}
   m_RootOrder: 2
@@ -118,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1059310869939728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.94, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4281941559028516}
@@ -131,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1196859372679598}
   m_LocalRotation: {x: 0.70710665, y: -0, z: -0, w: 0.707107}
-  m_LocalPosition: {x: 0, y: 1.145, z: 0.656}
+  m_LocalPosition: {x: 0, y: 0.64, z: 0.656}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.15}
   m_Children: []
   m_Father: {fileID: 4281941559028516}
@@ -314,3 +315,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &208310386211926870
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1716872088801600}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 0.5, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
