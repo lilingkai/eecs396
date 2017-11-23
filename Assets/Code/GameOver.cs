@@ -51,7 +51,7 @@ public class GameOver : MonoBehaviour {
                 }
                 Destroy(FindObjectOfType<WaveUI>());
             }
-            else if (FindObjectOfType<EnemyManager>()._wavenumber == 5)
+            else if (FindObjectOfType<EnemyManager>()._wavenumber == 20)
             {
                 _text.text = "You Won!";
                 _over = 1;
