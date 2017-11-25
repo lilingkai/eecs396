@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour {
     public int rewardMoney;
     
 	void Start () {
-        health = 50;
+        health = 75;
         damage = 20;
         _rb = GetComponent<Rigidbody>();
         rewardMoney = 10;
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour {
         rewardMoney = m;
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         this.health -= damage;
         if (health <= 0)

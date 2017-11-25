@@ -16,7 +16,7 @@ public class Gun : MonoBehaviour {
             transform.position + 0.2f * transform.up,
             transform.rotation,
             transform.up,
-            50,
+            25,
             time + Bullet.LIFETIME);
     }
 }

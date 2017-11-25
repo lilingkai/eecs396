@@ -63,9 +63,9 @@ public class EnemyManager : MonoBehaviour
             GameObject newEnemy = (GameObject)Object.Instantiate(_enemyPrefab, new Vector3(0, 1.5f, 0), Quaternion.identity);
             newEnemy.transform.SetParent(_holder.transform);
             newEnemy.GetComponent<NavMeshAgent>().speed = 2f;
-            newEnemy.GetComponent<Enemy>().health = 20;
+            newEnemy.GetComponent<Enemy>().health = 50;
             newEnemy.GetComponent<Renderer>().material.color = Color.yellow;
-            newEnemy.transform.localScale = new Vector3(0.5f, 0.1f, 0.5f);
+            newEnemy.transform.localScale = new Vector3(0.5f, 0.25f, 0.5f);
             newEnemy.transform.position = new Vector3(newEnemy.transform.position.x, 0.6f, newEnemy.transform.position.z);
         }
     }
@@ -77,7 +77,7 @@ public class EnemyManager : MonoBehaviour
             GameObject newEnemy = (GameObject)Object.Instantiate(_enemyPrefab, new Vector3(0, 1.5f, 0), Quaternion.identity);
             newEnemy.transform.SetParent(_holder.transform);
             newEnemy.GetComponent<Enemy>().damage = 50;
-            newEnemy.GetComponent<Enemy>().health = 100;
+            newEnemy.GetComponent<Enemy>().health = 1000;
             newEnemy.GetComponent<NavMeshAgent>().speed = .5f;
             newEnemy.transform.localScale = new Vector3(0.5f, 1f, 0.5f);
             newEnemy.GetComponent<Renderer>().material.color = Color.black;

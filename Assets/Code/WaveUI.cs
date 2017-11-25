@@ -25,14 +25,14 @@ public class WaveUI : MonoBehaviour {
 
     public float distancePerSecond = 10f;
     public float w1start = 180f;
-    public float w2start = 480f;
-    public float w3start = 780f;
-    public float w4start =1000f;
-    public float w5start = 1200f;
-    public float w6start = 1400f;
-    public float w7start = 1600f;
-    public float w8start = 1800f;
-    public float w9start = 2000f;
+    public float w2start = 380f;
+    public float w3start = 580f;
+    public float w4start = 780f;
+    public float w5start = 1130f;
+    public float w6start = 1480f;
+    public float w7start = 1680f;
+    public float w8start = 1880f;
+    public float w9start = 2080f;
 
     // Use this for initialization
     void Start () {
@@ -80,6 +80,12 @@ public class WaveUI : MonoBehaviour {
         _transform1.Translate(-1 * distancePerSecond * Time.deltaTime, 0, 0);
         _transform2.Translate(-1 * distancePerSecond * Time.deltaTime, 0, 0);
         _transform3.Translate(-1 * distancePerSecond * Time.deltaTime, 0, 0);
+        _transform4.Translate(-1 * distancePerSecond * Time.deltaTime, 0, 0);
+        _transform5.Translate(-1 * distancePerSecond * Time.deltaTime, 0, 0);
+        _transform6.Translate(-1 * distancePerSecond * Time.deltaTime, 0, 0);
+        _transform7.Translate(-1 * distancePerSecond * Time.deltaTime, 0, 0);
+        _transform8.Translate(-1 * distancePerSecond * Time.deltaTime, 0, 0);
+        _transform9.Translate(-1 * distancePerSecond * Time.deltaTime, 0, 0);
     }
 
 

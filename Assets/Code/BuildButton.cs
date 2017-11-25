@@ -66,7 +66,7 @@ public class BuildButton : MenuButton
         }
 
         // Tentatively create tower
-        GameObject tower = (GameObject) Object.Instantiate(_tower, new Vector3(x, 1f, z), Quaternion.identity);
+        GameObject tower = (GameObject) Object.Instantiate(_tower, new Vector3(x, 0.5f, z), Quaternion.identity);
         foreach (Renderer r in tower.GetComponentsInChildren<Renderer>())
         {
             r.enabled = false;
