@@ -15,10 +15,7 @@ public class Cell : MonoBehaviour
     private void OnMouseDown()
     {
         Vector3 pos = gameObject.transform.position;
-        print(pos);
-        print(xa);
-        print(za);
-        if (xa ==(int) pos.x && za ==(int) pos.z)
+        if (xa == (int) pos.x && za == (int) pos.z)
         {
             Game.x = (int) pos.x;
             Game.z = (int) pos.z;
