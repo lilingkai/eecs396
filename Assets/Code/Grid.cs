@@ -23,6 +23,7 @@ public class Grid : MonoBehaviour {
     {
         if (Game.Grid.selected)
         {
+            foreach (MenuButton btn in FindObjectsOfType<MenuButton>()) { btn.Hide(); }
             Game.Grid.selected.GetComponent<Renderer>().material.color = Color.white;
         }
     }

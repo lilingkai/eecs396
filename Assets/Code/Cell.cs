@@ -20,8 +20,7 @@ public class Cell : MonoBehaviour
             Game.x = (int) pos.x;
             Game.z = (int) pos.z;
             Game.Grid.Unselect();
-            FindObjectOfType<SellButton>().Hide();
-            FindObjectOfType<BuildButton>().Hide();
+            foreach (MenuButton btn in FindObjectsOfType<MenuButton>()) { btn.Hide();  }
             xa = 555; za = 555;
         }
         else
@@ -51,13 +50,13 @@ public class Cell : MonoBehaviour
 
             if (!contents)
             {
-                FindObjectOfType<BuildButton>().Appear();
+                foreach (BuildButton btn in FindObjectsOfType<BuildButton>()) { btn.Appear(); }
                 FindObjectOfType<SellButton>().Hide();
             }
-            else if (contents && contents.GetComponent<Tower>())
+            else if (contents && (contents.GetComponent<Tower>() || contents.GetComponent<FreezeTower>()))
             {
                 FindObjectOfType<SellButton>().Appear();
-                FindObjectOfType<BuildButton>().Hide();
+                foreach (BuildButton btn in FindObjectsOfType<BuildButton>()) { btn.Hide(); }
             }
         }
     }

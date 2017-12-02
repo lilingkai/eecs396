@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class BuildButton : MenuButton
 {
-    private static Object _tower;
+    protected Object _tower;
 
     // Use this for initialization
     protected override void Start()
@@ -19,10 +19,8 @@ public class BuildButton : MenuButton
     {
         if (Game.Money.money >= Tower.cost)
         {
-            _button.transform.position = hiddenPosition;
             NewTower(Game.x, Game.z);
             Game.Money.money -= Tower.cost;
-
         }
     }
 

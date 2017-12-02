@@ -25,6 +25,5 @@ public class BaseHealth : MonoBehaviour
     {
         currentHealth -= amount;
         healthSlider.value = currentHealth;
-        print(currentHealth);
     }
 }
